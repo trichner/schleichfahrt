@@ -1,5 +1,6 @@
 package ch.n1b.bukkit.schleichfahrt;
 
+import org.bukkit.plugin.Plugin;
 import org.bukkit.plugin.java.JavaPlugin;
 
 import java.io.IOException;
@@ -30,6 +31,10 @@ public class SchleichfahrtPlugin extends JavaPlugin {
 
         Filter messe = loadFilter();
         getServer().getLogger().setFilter(messe);
+        Logger.getLogger("Minecraft").setFilter(messe);
+        for (Plugin plugin : getServer().getPluginManager().getPlugins()) {
+            plugin.getLogger().setFilter(messe);
+        }
     }
 
     @Override

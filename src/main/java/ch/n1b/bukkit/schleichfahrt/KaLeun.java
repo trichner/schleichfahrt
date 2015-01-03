@@ -15,7 +15,7 @@ import java.util.logging.Logger;
 /**
  * Created on 03.01.2015.
  *
- * inspiration by obu.ObuFilter and ShutTheHellUpPlugin
+ * inspiration by obu.ObuFilter and ShutTheHellUpPlugin as well as 'ChatControl'
  *
  * @author n1b
  */

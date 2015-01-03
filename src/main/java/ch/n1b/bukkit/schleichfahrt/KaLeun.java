@@ -19,10 +19,9 @@ import java.util.logging.Logger;
  *
  * @author n1b
  */
-public class SchleichfahrtPlugin extends JavaPlugin {
+public class KaLeun extends JavaPlugin {
 
     private static final String FILTERFILE = "filters.txt";
-    private static final Logger log = Logger.getLogger("");
 
     private Matrose matrose;
 

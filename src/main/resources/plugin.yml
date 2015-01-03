@@ -1,5 +1,5 @@
 name: Schleichfahrt
-main: ch.n1b.bukkit.schleichfahrt.SchleichfahrtPlugin
+main: ch.n1b.bukkit.schleichfahrt.KaLeun
 version: ${project.version}
 load: startup
 authors: [AthmosPrime, n1bblonian, trichner]

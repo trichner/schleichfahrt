@@ -14,22 +14,10 @@ import java.util.logging.LogRecord;
  */
 public class Offiziersmesse implements Filter{
 
-    private static final ThreadLocal<Boolean> RECURSION_CONTROL
-            = new ThreadLocal<>();
-
     private Set<Filter> filters = new HashSet<>();
 
     public boolean isLoggable(LogRecord record)
     {
-        // prevent recursions
-        if(RECURSION_CONTROL.get() == null){
-            RECURSION_CONTROL.set(true);
-        }else {
-            record.setMessage(record.getMessage() + " [Schleichfahrt] Recursion detected. Please report " +
-                    "this!");
-            return true;
-        }
-
         // apply filters
         for (Filter filter : filters) {
             if(!filter.isLoggable(record)){

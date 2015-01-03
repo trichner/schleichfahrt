@@ -1,7 +1,5 @@
 package ch.n1b.bukkit.schleichfahrt;
 
-import org.bukkit.Bukkit;
-
 import java.util.HashSet;
 import java.util.Set;
 import java.util.logging.Filter;
@@ -20,7 +18,6 @@ public class Offiziersmesse implements Filter{
 
     public boolean isLoggable(LogRecord record)
     {
-        Bukkit.getLogger().info("Filtering...");
         // apply filters
         for (Filter filter : filters) {
             if(!filter.isLoggable(record)){

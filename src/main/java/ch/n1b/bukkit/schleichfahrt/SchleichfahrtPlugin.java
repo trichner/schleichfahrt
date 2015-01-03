@@ -22,18 +22,18 @@ public class SchleichfahrtPlugin extends JavaPlugin {
     private static final String FILTERFILE = "filters.txt";
     private static final Logger log = Logger.getLogger("");
 
-    private Filter oldFilter;
 
     @Override
     public void onEnable() {
         //--- set our filter
-        oldFilter = log.getFilter();
         log.setFilter(loadFilter());
+
+        Filter messe = loadFilter();
+        getServer().getLogger().setFilter(messe);
     }
 
     @Override
     public void onDisable() {
-        log.setFilter(oldFilter);
     }
 
     private Filter loadFilter(){

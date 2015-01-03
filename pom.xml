@@ -6,7 +6,7 @@
 
     <groupId>ch.n1b.bukkit.schleichfahrt</groupId>
     <artifactId>schleichfahrt</artifactId>
-    <version>0.1.2</version>
+    <version>0.1.3</version>
 
     <repositories>
         <repository>

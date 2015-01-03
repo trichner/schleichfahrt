@@ -1,7 +1,7 @@
 package ch.n1b.bukkit.schleichfahrt;
 
-import java.util.HashSet;
-import java.util.Set;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.logging.Filter;
 import java.util.logging.LogRecord;
 
@@ -14,7 +14,7 @@ import java.util.logging.LogRecord;
  */
 public class Offiziersmesse implements Filter{
 
-    private Set<Filter> filters = new HashSet<>();
+    private List<Filter> filters = new ArrayList<>();
 
     public boolean isLoggable(LogRecord record)
     {

@@ -1,5 +1,6 @@
 package ch.n1b.bukkit.schleichfahrt;
 
+import org.bukkit.Bukkit;
 import org.bukkit.plugin.Plugin;
 import org.bukkit.plugin.java.JavaPlugin;
 
@@ -23,22 +24,32 @@ public class SchleichfahrtPlugin extends JavaPlugin {
     private static final String FILTERFILE = "filters.txt";
     private static final Logger log = Logger.getLogger("");
 
+    private Filter filter;
 
     @Override
     public void onEnable() {
         //--- set our filter
         log.setFilter(loadFilter());
 
-        Filter messe = loadFilter();
-        getServer().getLogger().setFilter(messe);
-        Logger.getLogger("Minecraft").setFilter(messe);
-        for (Plugin plugin : getServer().getPluginManager().getPlugins()) {
-            plugin.getLogger().setFilter(messe);
-        }
+        filter = loadFilter();
+        Bukkit.getScheduler().scheduleSyncRepeatingTask(this, new Runnable() {
+            @Override
+            public void run() {
+                setFilters();
+            }
+        },100,100);
     }
 
     @Override
     public void onDisable() {
+    }
+
+    private void setFilters(){
+        getServer().getLogger().setFilter(filter);
+        Logger.getLogger("Minecraft").setFilter(filter);
+        for (Plugin plugin : getServer().getPluginManager().getPlugins()) {
+            plugin.getLogger().setFilter(filter);
+        }
     }
 
     private Filter loadFilter(){

@@ -14,7 +14,7 @@ import java.util.logging.Logger;
  *
  * inspiration by obu.ObuFilter and ShutTheHellUpPlugin
  *
- * @author Thomas
+ * @author n1b
  */
 public class SchleichfahrtPlugin extends JavaPlugin {
 
@@ -37,9 +37,12 @@ public class SchleichfahrtPlugin extends JavaPlugin {
 
     private Filter loadFilter(){
         Path filterfile = this.getDataFolder().toPath().resolve(FILTERFILE);
-
         Offiziersmesse messe = new Offiziersmesse();
         try {
+            if(!Files.exists(filterfile)){
+                Files.createDirectories(filterfile.getParent());
+                Files.createFile(filterfile);
+            }
             List<String> regexes = Files.readAllLines(filterfile);
             for (String regex : regexes) {
                 if(!regex.startsWith("#")){

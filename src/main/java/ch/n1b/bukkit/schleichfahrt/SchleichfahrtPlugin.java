@@ -3,6 +3,7 @@ package ch.n1b.bukkit.schleichfahrt;
 import org.bukkit.plugin.java.JavaPlugin;
 
 import java.io.IOException;
+import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.util.List;
@@ -43,7 +44,7 @@ public class SchleichfahrtPlugin extends JavaPlugin {
                 Files.createDirectories(filterfile.getParent());
                 Files.createFile(filterfile);
             }
-            List<String> regexes = Files.readAllLines(filterfile);
+            List<String> regexes = Files.readAllLines(filterfile, StandardCharsets.UTF_8);
             for (String regex : regexes) {
                 if(!regex.startsWith("#")){
                     messe.add(new Wachoffizier(regex));

@@ -1,7 +1,5 @@
 package ch.n1b.bukkit.schleichfahrt;
 
-import java.util.logging.Filter;
-import java.util.logging.LogRecord;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -12,7 +10,7 @@ import java.util.regex.Pattern;
  *
  * @author n1b
  */
-public class Wachoffizier implements Filter{
+public class Wachoffizier implements Matrose {
 
     private final Pattern pattern;
 
@@ -20,13 +18,9 @@ public class Wachoffizier implements Filter{
         this.pattern = Pattern.compile(regex);
     }
 
-    public boolean isLoggable(LogRecord record)
-    {
-        if (record.getMessage() == null) {
-            return true;
-        }
-        Matcher matcher = pattern.matcher(record.getMessage());
-
-        return !matcher.find();
+    @Override
+    public boolean test(String t) {
+        Matcher matcher = pattern.matcher(t);
+        return matcher.find();
     }
 }

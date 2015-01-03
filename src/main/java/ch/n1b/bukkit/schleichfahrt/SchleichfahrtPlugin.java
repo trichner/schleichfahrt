@@ -20,7 +20,7 @@ import java.util.logging.Logger;
 public class SchleichfahrtPlugin extends JavaPlugin {
 
     private static final String FILTERFILE = "filters.txt";
-    private static final Logger log = Logger.getLogger("Minecraft");
+    private static final Logger log = Logger.getLogger("");
 
     private Filter oldFilter;
 
@@ -41,6 +41,7 @@ public class SchleichfahrtPlugin extends JavaPlugin {
         Offiziersmesse messe = new Offiziersmesse();
         try {
             if(!Files.exists(filterfile)){
+                this.getLogger().warning("No " + FILTERFILE + " creating an empty one.");
                 Files.createDirectories(filterfile.getParent());
                 Files.createFile(filterfile);
             }
@@ -50,6 +51,7 @@ public class SchleichfahrtPlugin extends JavaPlugin {
                     messe.add(new Wachoffizier(regex));
                 }
             }
+            this.getLogger().info("Loaded " + regexes + " filters");
         } catch (IOException e) {
             this.getLogger().warning("Cannot read " + FILTERFILE);
         }

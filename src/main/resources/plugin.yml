@@ -7,5 +7,4 @@ website: n1b.ch
 description: Shuts the mc console the fuck up!
 softdepend: []
 loadbefore: []
-database: true
 prefix: Schleichfahrt

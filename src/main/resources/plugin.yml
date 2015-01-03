@@ -1,0 +1,11 @@
+name: Schleichfahrt
+main: ch.n1b.bukkit.schleichfahrt.SchleichfahrtPlugin
+version: ${project.version}
+load: startup
+authors: [AthmosPrime, n1bblonian, trichner]
+website: n1b.ch
+description: Shuts the mc console the fuck up!
+softdepend: []
+loadbefore: []
+database: true
+prefix: Schleichfahrt

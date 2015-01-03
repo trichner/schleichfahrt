@@ -21,6 +21,6 @@ public class Wachoffizier implements Matrose {
     @Override
     public boolean test(String t) {
         Matcher matcher = pattern.matcher(t);
-        return matcher.find();
+        return !matcher.find();
     }
 }

@@ -51,7 +51,7 @@ public class SchleichfahrtPlugin extends JavaPlugin {
                     messe.add(new Wachoffizier(regex));
                 }
             }
-            this.getLogger().info("Loaded " + regexes + " filters");
+            this.getLogger().info("Loaded " + regexes.size() + " filters");
         } catch (IOException e) {
             this.getLogger().warning("Cannot read " + FILTERFILE);
         }
